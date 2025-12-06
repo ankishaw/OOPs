@@ -19,8 +19,8 @@ class Stu implements Cloneable{
 
     @Override
     protected Object clone() throws CloneNotSupportedException{
-        Stu student = (Stu) super.clone();
-        student.passport = (Pass) passport.clone();
+        Stu student = (Stu) super.clone();// Shallow copy
+        student.passport = (Pass) passport.clone();// Cloning nested object for Deep Cloning
         return student;
     }
 }
@@ -29,7 +29,7 @@ public class ObjectCloning {
         Pass passport = new Pass("9876543210");
         Stu student = new Stu("Ankit", passport);
 
-        Stu cloneStudent = (Stu) student.clone();
+        Stu cloneStudent = (Stu) student.clone();// Deep Cloning
         System.out.println(student.name);
         System.out.println(student.passport.passportNumber);
         System.out.println(cloneStudent.name);
